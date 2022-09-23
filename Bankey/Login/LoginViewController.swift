@@ -10,6 +10,8 @@ import UIKit
 class LoginViewController: UIViewController {
     
     let stackView = UIStackView()
+    let titleLabel = UILabel()
+    let subtitleLabel = UILabel()
     let loginView = LoginView()
     let signInButton = LoadingButton(type: .system)
     let errorLabel = UILabel()
@@ -37,6 +39,19 @@ extension LoginViewController {
         stackView.axis = .vertical
         stackView.spacing = spacing * 2
         
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.text = "Bankey"
+
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        subtitleLabel.adjustsFontForContentSizeCategory = true
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.text = "Your premium source for all things banking!"
+        
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.backgroundColor = .systemBlue
         signInButton.titleLabel?.tintColor = .white
@@ -54,11 +69,26 @@ extension LoginViewController {
     }
     
     func layout() {
+        view.addSubview(titleLabel)
+        view.addSubview(subtitleLabel)
         view.addSubview(stackView)
         
         stackView.addArrangedSubview(loginView)
         stackView.addArrangedSubview(signInButton)
         stackView.addArrangedSubview(errorLabel)
+        
+        // Title
+        NSLayoutConstraint.activate([
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
+        // Subtitle
+        NSLayoutConstraint.activate([
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
+            subtitleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
+        ])
         
         // StackView
         NSLayoutConstraint.activate([
@@ -66,6 +96,7 @@ extension LoginViewController {
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
+        
     }
 }
 
@@ -102,6 +133,7 @@ extension LoginViewController {
         errorLabel.isHidden = false
     }
 }
+
 
 
 
