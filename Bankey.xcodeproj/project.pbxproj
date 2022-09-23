@@ -13,6 +13,8 @@
 		1228693128DD4CC30026B3BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1228692F28DD4CC30026B3BE /* LaunchScreen.storyboard */; };
 		1228693C28DD4CC30026B3BE /* BankeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228693B28DD4CC30026B3BE /* BankeyTests.swift */; };
 		1228694728DD4CC30026B3BE /* BankeyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228694628DD4CC30026B3BE /* BankeyUITests.swift */; };
+		1228695728DD56370026B3BE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228695628DD56370026B3BE /* LoginView.swift */; };
+		1228695D28DD97900026B3BE /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228695C28DD97900026B3BE /* LoadingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		1228694228DD4CC30026B3BE /* BankeyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankeyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1228694628DD4CC30026B3BE /* BankeyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankeyUITests.swift; sourceTree = "<group>"; };
 		1228694828DD4CC30026B3BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1228695628DD56370026B3BE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1228695C28DD97900026B3BE /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		1228692328DD4CC10026B3BE /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
+				1228695B28DD97820026B3BE /* CommonComponent */,
 				1228695428DD551A0026B3BE /* Base */,
 				1228695528DD55B20026B3BE /* Login */,
 				1228692428DD4CC10026B3BE /* AppDelegate.swift */,
@@ -134,8 +139,17 @@
 			isa = PBXGroup;
 			children = (
 				1228692828DD4CC10026B3BE /* LoginViewController.swift */,
+				1228695628DD56370026B3BE /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		1228695B28DD97820026B3BE /* CommonComponent */ = {
+			isa = PBXGroup;
+			children = (
+				1228695C28DD97900026B3BE /* LoadingButton.swift */,
+			);
+			path = CommonComponent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1228695D28DD97900026B3BE /* LoadingButton.swift in Sources */,
+				1228695728DD56370026B3BE /* LoginView.swift in Sources */,
 				1228692928DD4CC10026B3BE /* LoginViewController.swift in Sources */,
 				1228692528DD4CC10026B3BE /* AppDelegate.swift in Sources */,
 			);
