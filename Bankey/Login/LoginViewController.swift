@@ -7,6 +7,16 @@
 
 import UIKit
 
+// MARK: - Protocol logoutdelegate
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
+
+// MARK: - Protocol LoginViewControllerDelegate
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+}
+
 class LoginViewController: UIViewController {
     
     let stackView = UIStackView()
@@ -24,12 +34,19 @@ class LoginViewController: UIViewController {
     var password: String? {
         return loginView.passwordTextField.text
     }
+    
+    weak var delegate: LoginViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         style()
         layout()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        signInButton.hideLoading()
+        super.viewDidDisappear(animated)
     }
 }
 
@@ -123,6 +140,7 @@ extension LoginViewController {
         
         if username == "Koo" && password == "134682" {
             signInButton.showLoading()
+            delegate?.didLogin()
         } else {
             configureErrorLabel(withMessage: "username과 password 가 틀립니다.")
         }

@@ -15,6 +15,10 @@
 		1228694728DD4CC30026B3BE /* BankeyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228694628DD4CC30026B3BE /* BankeyUITests.swift */; };
 		1228695728DD56370026B3BE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228695628DD56370026B3BE /* LoginView.swift */; };
 		1228695D28DD97900026B3BE /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228695C28DD97900026B3BE /* LoadingButton.swift */; };
+		12E47B2528E1320100240A0F /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2428E1320100240A0F /* OnBoardingViewController.swift */; };
+		12E47B2728E1531800240A0F /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2628E1531800240A0F /* OnBoardingPageViewController.swift */; };
+		12E47B2928E1694C00240A0F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2828E1694C00240A0F /* ContainerViewController.swift */; };
+		12E47B2B28E27E6100240A0F /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2A28E27E6100240A0F /* DummyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		1228694828DD4CC30026B3BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1228695628DD56370026B3BE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1228695C28DD97900026B3BE /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+		12E47B2428E1320100240A0F /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		12E47B2628E1531800240A0F /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
+		12E47B2828E1694C00240A0F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		12E47B2A28E27E6100240A0F /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 				1228695B28DD97820026B3BE /* CommonComponent */,
 				1228695428DD551A0026B3BE /* Base */,
 				1228695528DD55B20026B3BE /* Login */,
+				12E47B2128E1305800240A0F /* Onboarding */,
 				1228692428DD4CC10026B3BE /* AppDelegate.swift */,
 			);
 			path = Bankey;
@@ -140,6 +149,7 @@
 			children = (
 				1228692828DD4CC10026B3BE /* LoginViewController.swift */,
 				1228695628DD56370026B3BE /* LoginView.swift */,
+				12E47B2A28E27E6100240A0F /* DummyViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -150,6 +160,16 @@
 				1228695C28DD97900026B3BE /* LoadingButton.swift */,
 			);
 			path = CommonComponent;
+			sourceTree = "<group>";
+		};
+		12E47B2128E1305800240A0F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				12E47B2628E1531800240A0F /* OnBoardingPageViewController.swift */,
+				12E47B2428E1320100240A0F /* OnBoardingViewController.swift */,
+				12E47B2828E1694C00240A0F /* ContainerViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,8 +303,12 @@
 			files = (
 				1228695D28DD97900026B3BE /* LoadingButton.swift in Sources */,
 				1228695728DD56370026B3BE /* LoginView.swift in Sources */,
+				12E47B2928E1694C00240A0F /* ContainerViewController.swift in Sources */,
+				12E47B2528E1320100240A0F /* OnBoardingViewController.swift in Sources */,
 				1228692928DD4CC10026B3BE /* LoginViewController.swift in Sources */,
+				12E47B2728E1531800240A0F /* OnBoardingPageViewController.swift in Sources */,
 				1228692528DD4CC10026B3BE /* AppDelegate.swift in Sources */,
+				12E47B2B28E27E6100240A0F /* DummyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
