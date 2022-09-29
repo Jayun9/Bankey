@@ -19,6 +19,12 @@
 		12E47B2728E1531800240A0F /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2628E1531800240A0F /* OnBoardingPageViewController.swift */; };
 		12E47B2928E1694C00240A0F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2828E1694C00240A0F /* ContainerViewController.swift */; };
 		12E47B2B28E27E6100240A0F /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2A28E27E6100240A0F /* DummyViewController.swift */; };
+		12E47B2D28E285AD00240A0F /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2C28E285AD00240A0F /* LocalState.swift */; };
+		12E47B3028E2C59600240A0F /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B2F28E2C59600240A0F /* UIViewController+Utils.swift */; };
+		12E47B3228E3CAF000240A0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B3128E3CAF000240A0F /* MainViewController.swift */; };
+		12E47B3528E3F31F00240A0F /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B3428E3F31F00240A0F /* AccountSummaryViewController.swift */; };
+		12E86C8D28E561F400DDE598 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E86C8C28E561F400DDE598 /* AccountSummaryCell.swift */; };
+		12F35EF428E51A02002781AA /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F35EF328E51A02002781AA /* AccountSummaryHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,12 @@
 		12E47B2628E1531800240A0F /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
 		12E47B2828E1694C00240A0F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		12E47B2A28E27E6100240A0F /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
+		12E47B2C28E285AD00240A0F /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
+		12E47B2F28E2C59600240A0F /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		12E47B3128E3CAF000240A0F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		12E47B3428E3F31F00240A0F /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
+		12E86C8C28E561F400DDE598 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
+		12F35EF328E51A02002781AA /* AccountSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +119,14 @@
 		1228692328DD4CC10026B3BE /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
-				1228695B28DD97820026B3BE /* CommonComponent */,
-				1228695428DD551A0026B3BE /* Base */,
-				1228695528DD55B20026B3BE /* Login */,
-				12E47B2128E1305800240A0F /* Onboarding */,
 				1228692428DD4CC10026B3BE /* AppDelegate.swift */,
+				12E47B3128E3CAF000240A0F /* MainViewController.swift */,
+				1228695528DD55B20026B3BE /* Login */,
+				12E47B3328E3F30100240A0F /* AccountSummary */,
+				12E47B2128E1305800240A0F /* Onboarding */,
+				1228695B28DD97820026B3BE /* CommonComponent */,
+				12E47B2E28E285B600240A0F /* Utils */,
+				1228695428DD551A0026B3BE /* Base */,
 			);
 			path = Bankey;
 			sourceTree = "<group>";
@@ -170,6 +185,25 @@
 				12E47B2828E1694C00240A0F /* ContainerViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		12E47B2E28E285B600240A0F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				12E47B2C28E285AD00240A0F /* LocalState.swift */,
+				12E47B2F28E2C59600240A0F /* UIViewController+Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		12E47B3328E3F30100240A0F /* AccountSummary */ = {
+			isa = PBXGroup;
+			children = (
+				12E47B3428E3F31F00240A0F /* AccountSummaryViewController.swift */,
+				12F35EF328E51A02002781AA /* AccountSummaryHeaderView.swift */,
+				12E86C8C28E561F400DDE598 /* AccountSummaryCell.swift */,
+			);
+			path = AccountSummary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,14 +335,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E86C8D28E561F400DDE598 /* AccountSummaryCell.swift in Sources */,
+				12F35EF428E51A02002781AA /* AccountSummaryHeaderView.swift in Sources */,
 				1228695D28DD97900026B3BE /* LoadingButton.swift in Sources */,
+				12E47B3228E3CAF000240A0F /* MainViewController.swift in Sources */,
+				12E47B2D28E285AD00240A0F /* LocalState.swift in Sources */,
 				1228695728DD56370026B3BE /* LoginView.swift in Sources */,
 				12E47B2928E1694C00240A0F /* ContainerViewController.swift in Sources */,
+				12E47B3028E2C59600240A0F /* UIViewController+Utils.swift in Sources */,
 				12E47B2528E1320100240A0F /* OnBoardingViewController.swift in Sources */,
 				1228692928DD4CC10026B3BE /* LoginViewController.swift in Sources */,
 				12E47B2728E1531800240A0F /* OnBoardingPageViewController.swift in Sources */,
 				1228692528DD4CC10026B3BE /* AppDelegate.swift in Sources */,
 				12E47B2B28E27E6100240A0F /* DummyViewController.swift in Sources */,
+				12E47B3528E3F31F00240A0F /* AccountSummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

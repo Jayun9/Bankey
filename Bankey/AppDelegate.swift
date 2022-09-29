@@ -7,6 +7,8 @@
 
 import UIKit
 
+let appColor: UIColor = .systemTeal
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UIPageViewControllerDelegate {
     var window: UIWindow?
@@ -14,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPageViewControllerDeleg
     let loginViewController = LoginViewController()
     let onboardingViewContainerContainer = OnBoardingContainerViewController()
     let dummyViewController = DummyViewController()
+    let mainController = MainViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -23,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPageViewControllerDeleg
         loginViewController.delegate = self
         onboardingViewContainerContainer.pageViewController.onboardingDelegate = self
         dummyViewController.logoutDelegate = self
-        window?.rootViewController = loginViewController
+        window?.rootViewController = AccountSummaryViewController()
         
 
         return true
@@ -33,13 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPageViewControllerDeleg
 // MARK: - LoginViewControllerDelegate
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
-        setRootViewController(onboardingViewContainerContainer)
+        if LocalState.hasOnboarded {
+            setRootViewController(dummyViewController)
+        } else {
+            setRootViewController(onboardingViewContainerContainer)
+        }
     }
 }
 
 // MARK: - OnBoardingPageViewControllerDelegate
 extension AppDelegate: OnBoardingPageViewControllerDelegate {
     func didOnboarding() {
+        LocalState.hasOnboarded = true
         setRootViewController(dummyViewController)
     }
 }
