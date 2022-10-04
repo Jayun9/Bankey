@@ -21,6 +21,14 @@ class AccountSummaryCell: UITableViewCell {
 
     static let rowHeight: CGFloat = 100
     static let reuseId = "AccountSummaryCell"
+    
+    var account: AccountViewModel.Account? {
+        didSet {
+            if let setAccounted = account {
+                configure(account: setAccounted)
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,17 +45,14 @@ extension AccountSummaryCell {
     func style() {
         // typeLabel
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
-        typeLabel.text = "AccountType"
         typeLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         typeLabel.adjustsFontForContentSizeCategory = true
 
         // underlineView
         underlineView.translatesAutoresizingMaskIntoConstraints = false
-        underlineView.backgroundColor = appColor
-        
+
         // nameLable
         nameLable.translatesAutoresizingMaskIntoConstraints = false
-        nameLable.text = "Account Name is blabla"
         nameLable.font = UIFont.preferredFont(forTextStyle: .body)
         nameLable.adjustsFontForContentSizeCategory = true
         
@@ -59,16 +64,12 @@ extension AccountSummaryCell {
         
         // balanceLabel
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
-        balanceLabel.text = "Current balance"
         balanceLabel.font = UIFont.preferredFont(forTextStyle: .body)
         balanceLabel.adjustsFontForContentSizeCategory = true
         
         // balanceAmountLabel
         balanceAmountLabel.translatesAutoresizingMaskIntoConstraints = false
-        balanceAmountLabel.text = "$17,562"
-        balanceAmountLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        balanceAmountLabel.adjustsFontForContentSizeCategory = true
-        
+
         // cheronImageView
         cheronImageView.translatesAutoresizingMaskIntoConstraints = false
         cheronImageView.image = UIImage(systemName:  "arrowtriangle.right")?.withTintColor(appColor, renderingMode: .alwaysOriginal)
@@ -116,9 +117,14 @@ extension AccountSummaryCell {
             cheronImageView.topAnchor.constraint(equalTo: balanceVStackView.topAnchor),
             trailingAnchor.constraint(equalToSystemSpacingAfter: cheronImageView.trailingAnchor, multiplier: 1),
         ])
-
-
-
+    }
+    
+    func configure(account: AccountViewModel.Account) {
+        typeLabel.text = account.accountType
+        nameLable.text = account.accountName
+        underlineView.backgroundColor = account.accountColor
+        balanceLabel.text = account.balnaceName
+        balanceAmountLabel.attributedText = account.balnce
     }
 }
 

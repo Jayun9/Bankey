@@ -20,7 +20,8 @@ class MainViewController: UITabBarController {
 
 extension MainViewController {
     func setup() {
-        let vc1 = ViewController1()
+        let accountViewModel = AccountViewModel()
+        let vc1 = AccountSummaryViewController(viewModel: accountViewModel)
         let vc2 = ViewController2()
         let vc3 = ViewController3()
         

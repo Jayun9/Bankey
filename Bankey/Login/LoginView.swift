@@ -47,6 +47,7 @@ extension LoginView {
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
         passwordTextField.delegate = self
+        passwordTextField.setSecurToggleBtn()
         
         devideView.translatesAutoresizingMaskIntoConstraints = false
         devideView.backgroundColor = .secondarySystemFill
@@ -80,11 +81,7 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        } else {
-            return false
-        }
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

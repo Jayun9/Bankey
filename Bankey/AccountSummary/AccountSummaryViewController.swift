@@ -5,13 +5,23 @@
 //  Created by HanaTI on 2022/09/28.
 //
 import UIKit
+import Foundation
 
 class AccountSummaryViewController: UIViewController {
     
-    let data = ["구자윤", "의 앱개발 ", "챌린지"]
-    
     let tableView = UITableView()
+    
+    var viewModel: AccountViewModel? = nil
+    
+    init(viewModel: AccountViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -25,6 +35,8 @@ extension AccountSummaryViewController {
     func setup() {
         setupTable()
         setupTableHeaderView()
+        setupNavigationItem()
+        viewModel?.fetchData()
     }
     
     private func setupTable() {
@@ -33,21 +45,21 @@ extension AccountSummaryViewController {
         
         tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseId)
         tableView.rowHeight = AccountSummaryCell.rowHeight
+        tableView.tableFooterView = UIView()
     }
     
     private func setupTableHeaderView() {
         let header = AccountSummaryHeaderView()
 
         header.frame.size.height = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-        
-        
+
         tableView.tableHeaderView = header
     }
     
     
     func style() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        tableView.backgroundColor = appColor
     }
     
     func layout() {
@@ -60,34 +72,41 @@ extension AccountSummaryViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+    
+    func setupNavigationItem() {
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(tappedLogout))
+        logoutButton.tintColor = .label
+
+        navigationItem.rightBarButtonItem = logoutButton
+    }
 }
 
-// MARK - delegate
+// MARK:- delegate
 extension AccountSummaryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cellText = data[indexPath.row]
-        print(cellText)
+        
     }
 
 }
 
 extension AccountSummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = AccountSummaryCell()
+        guard let viewModel = viewModel, let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseId, for: indexPath) as? AccountSummaryCell else {
+            return UITableViewCell()
+        }
+        let account = viewModel.getAccount(by: indexPath)
+        cell.account = account
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return viewModel?.count ?? 0
     }
 }
 
-
-
-
-
-
-
-
-
-
+// MARK: Action
+extension AccountSummaryViewController {
+    @objc func tappedLogout() {
+        NotificationCenter.default.post(name: .logout, object: nil)
+    }
+}

@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPageViewControllerDeleg
 
     let loginViewController = LoginViewController()
     let onboardingViewContainerContainer = OnBoardingContainerViewController()
-    let dummyViewController = DummyViewController()
     let mainController = MainViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -25,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPageViewControllerDeleg
         
         loginViewController.delegate = self
         onboardingViewContainerContainer.pageViewController.onboardingDelegate = self
-        dummyViewController.logoutDelegate = self
-        window?.rootViewController = AccountSummaryViewController()
+        window?.rootViewController = loginViewController
         
+        registNotification()
 
         return true
     }
@@ -37,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIPageViewControllerDeleg
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
         if LocalState.hasOnboarded {
-            setRootViewController(dummyViewController)
+            setRootViewController(mainController)
         } else {
             setRootViewController(onboardingViewContainerContainer)
         }
@@ -48,13 +47,13 @@ extension AppDelegate: LoginViewControllerDelegate {
 extension AppDelegate: OnBoardingPageViewControllerDelegate {
     func didOnboarding() {
         LocalState.hasOnboarded = true
-        setRootViewController(dummyViewController)
+        setRootViewController(mainController)
     }
 }
 
 // MARK: - LogoutDelegate
 extension AppDelegate: LogoutDelegate {
-    func didLogout() {
+    @objc func didLogout() {
         setRootViewController(loginViewController)
     }
 }
@@ -76,5 +75,10 @@ extension AppDelegate {
             animations: nil,
             completion: nil)
     }
+    
+    private func registNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didLogout), name: .logout, object: nil)
+    }
 }
+
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1215542328EC092700DE6382 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215542228EC092700DE6382 /* Notification+Name.swift */; };
+		1215542528EC0AC300DE6382 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215542428EC0AC300DE6382 /* UITextField+SecureToggle.swift */; };
 		1228692528DD4CC10026B3BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228692428DD4CC10026B3BE /* AppDelegate.swift */; };
 		1228692928DD4CC10026B3BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1228692828DD4CC10026B3BE /* LoginViewController.swift */; };
 		1228692E28DD4CC30026B3BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1228692D28DD4CC30026B3BE /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		12E47B3228E3CAF000240A0F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B3128E3CAF000240A0F /* MainViewController.swift */; };
 		12E47B3528E3F31F00240A0F /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47B3428E3F31F00240A0F /* AccountSummaryViewController.swift */; };
 		12E86C8D28E561F400DDE598 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E86C8C28E561F400DDE598 /* AccountSummaryCell.swift */; };
+		12E86C8F28E6AE8C00DDE598 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E86C8E28E6AE8C00DDE598 /* AccountViewModel.swift */; };
+		12E86C9128E6AF3D00DDE598 /* BalnaceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E86C9028E6AF3D00DDE598 /* BalnaceFormatter.swift */; };
 		12F35EF428E51A02002781AA /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F35EF328E51A02002781AA /* AccountSummaryHeaderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1215542228EC092700DE6382 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		1215542428EC0AC300DE6382 /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
 		1228692128DD4CC10026B3BE /* Bankey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bankey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1228692428DD4CC10026B3BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1228692828DD4CC10026B3BE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 		12E47B3128E3CAF000240A0F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		12E47B3428E3F31F00240A0F /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
 		12E86C8C28E561F400DDE598 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
+		12E86C8E28E6AE8C00DDE598 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		12E86C9028E6AF3D00DDE598 /* BalnaceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalnaceFormatter.swift; sourceTree = "<group>"; };
 		12F35EF328E51A02002781AA /* AccountSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +200,9 @@
 			children = (
 				12E47B2C28E285AD00240A0F /* LocalState.swift */,
 				12E47B2F28E2C59600240A0F /* UIViewController+Utils.swift */,
+				1215542228EC092700DE6382 /* Notification+Name.swift */,
+				12E86C9028E6AF3D00DDE598 /* BalnaceFormatter.swift */,
+				1215542428EC0AC300DE6382 /* UITextField+SecureToggle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -202,6 +213,7 @@
 				12E47B3428E3F31F00240A0F /* AccountSummaryViewController.swift */,
 				12F35EF328E51A02002781AA /* AccountSummaryHeaderView.swift */,
 				12E86C8C28E561F400DDE598 /* AccountSummaryCell.swift */,
+				12E86C8E28E6AE8C00DDE598 /* AccountViewModel.swift */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -343,11 +355,15 @@
 				1228695728DD56370026B3BE /* LoginView.swift in Sources */,
 				12E47B2928E1694C00240A0F /* ContainerViewController.swift in Sources */,
 				12E47B3028E2C59600240A0F /* UIViewController+Utils.swift in Sources */,
+				1215542528EC0AC300DE6382 /* UITextField+SecureToggle.swift in Sources */,
+				12E86C8F28E6AE8C00DDE598 /* AccountViewModel.swift in Sources */,
 				12E47B2528E1320100240A0F /* OnBoardingViewController.swift in Sources */,
 				1228692928DD4CC10026B3BE /* LoginViewController.swift in Sources */,
+				12E86C9128E6AF3D00DDE598 /* BalnaceFormatter.swift in Sources */,
 				12E47B2728E1531800240A0F /* OnBoardingPageViewController.swift in Sources */,
 				1228692528DD4CC10026B3BE /* AppDelegate.swift in Sources */,
 				12E47B2B28E27E6100240A0F /* DummyViewController.swift in Sources */,
+				1215542328EC092700DE6382 /* Notification+Name.swift in Sources */,
 				12E47B3528E3F31F00240A0F /* AccountSummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

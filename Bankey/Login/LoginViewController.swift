@@ -149,6 +149,19 @@ extension LoginViewController {
     private func configureErrorLabel(withMessage message: String) {
         errorLabel.text = message
         errorLabel.isHidden = false
+        shakeSignInButton()
+    }
+    
+    private func shakeSignInButton() {
+        let animation = CAKeyframeAnimation()
+        
+        animation.keyPath = "position.x"
+        animation.values = [0, 10, -10, 10, 0]
+        animation.duration = 0.4
+        animation.keyTimes = [0, 0.16, 0.5, 0.83, 1]
+        
+        animation.isAdditive = true
+        signInButton.layer.add(animation, forKey: "Shake")
     }
 }
 
