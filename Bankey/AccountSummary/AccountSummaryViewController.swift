@@ -12,10 +12,11 @@ class AccountSummaryViewController: UIViewController {
     let tableView = UITableView()
     
     var viewModel: AccountViewModel? = nil
-    
+
     init(viewModel: AccountViewModel) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
+        viewModel.accountsDelegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -36,7 +37,7 @@ extension AccountSummaryViewController {
         setupTable()
         setupTableHeaderView()
         setupNavigationItem()
-        viewModel?.fetchData()
+        viewModel?.fetchAccounts(byEndPoint: "profile/1/accounts")
     }
     
     private func setupTable() {
@@ -50,10 +51,13 @@ extension AccountSummaryViewController {
     
     private func setupTableHeaderView() {
         let header = AccountSummaryHeaderView()
+        viewModel?.profileDelegate = header
+        header.profileViewModel = viewModel
 
         header.frame.size.height = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
 
         tableView.tableHeaderView = header
+        header.profileViewModel?.fetchProfile(byEndPoint: "profile/1")
     }
     
     
@@ -104,9 +108,16 @@ extension AccountSummaryViewController: UITableViewDataSource {
     }
 }
 
+extension AccountSummaryViewController: AccountsDelegate {
+    func setAccounts() {
+        self.tableView.reloadData()
+    }
+}
+
 // MARK: Action
 extension AccountSummaryViewController {
     @objc func tappedLogout() {
         NotificationCenter.default.post(name: .logout, object: nil)
     }
 }
+

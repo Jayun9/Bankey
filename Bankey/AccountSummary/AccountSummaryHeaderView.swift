@@ -21,6 +21,10 @@ class AccountSummaryHeaderView: UIView {
     let imageViewContainer = UIView()
     let imageView = UIImageView()
     
+    let shakeBellView = ShakeVellView()
+    
+    weak var profileViewModel: AccountViewModel?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -33,6 +37,16 @@ class AccountSummaryHeaderView: UIView {
     }
 }
 
+// MARK: Delegate
+extension AccountSummaryHeaderView: ProfileDelegate {
+    func setProfile(profile: AccountViewModel.Profile) {
+        greetingLabel.text = profile.welcomeText
+        nameLabel.text = profile.name
+        dateLabel.text = profile.date
+    }
+}
+
+// MARK: Style
 extension AccountSummaryHeaderView {
     func style() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,14 +97,18 @@ extension AccountSummaryHeaderView {
         imageView.image = UIImage(systemName: "sun.max.fill")
         imageView.tintColor = .systemYellow
         imageView.contentMode = .scaleAspectFit
+        imageView.setContentCompressionResistancePriority(UILayoutPriority(500), for: .vertical)
+        
+        // shakeBell
+        shakeBellView.translatesAutoresizingMaskIntoConstraints = false
 
     }
     
     func layout() {
         addSubview(contentView)
-        
+
         contentView.addSubview(containerHStack)
-        imageViewContainer.addSubview(imageView)
+        imageViewContainer.addSubViews([imageView, shakeBellView])
         containerHStack.addArrangedSubViews([accountLabelVStack, imageViewContainer])
         accountLabelVStack.addArrangedSubViews([titleLabel, greetingLabel, nameLabel, dateLabel])
 
@@ -112,7 +130,7 @@ extension AccountSummaryHeaderView {
         
         // imageContainerView
         NSLayoutConstraint.activate([
-            imageViewContainer.widthAnchor.constraint(equalToConstant: 100)
+            imageViewContainer.widthAnchor.constraint(equalToConstant: 100),
         ])
         
         // imageView
@@ -120,10 +138,16 @@ extension AccountSummaryHeaderView {
             imageView.widthAnchor.constraint(equalToConstant: 100),
             imageView.heightAnchor.constraint(equalToConstant: 100),
             imageView.centerXAnchor.constraint(equalTo: imageViewContainer.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: imageViewContainer.centerYAnchor),
+            imageView.topAnchor.constraint(equalTo: imageViewContainer.topAnchor),
         ])
 
-
+        //shakeBellView
+        NSLayoutConstraint.activate([
+//            shakeBellView.leadingAnchor.constraint(equalTo: imageViewContainer.leadingAnchor),
+//            shakeBellView.topAnchor.constraint(equalTo: imageViewContainer.topAnchor),
+            shakeBellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            shakeBellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        ])
     }
     
 }

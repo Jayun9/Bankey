@@ -20,7 +20,8 @@ class MainViewController: UITabBarController {
 
 extension MainViewController {
     func setup() {
-        let accountViewModel = AccountViewModel()
+        let api = API(baseUrl: "https://fierce-retreat-36855.herokuapp.com/bankey")
+        let accountViewModel = AccountViewModel(api: api)
         let vc1 = AccountSummaryViewController(viewModel: accountViewModel)
         let vc2 = ViewController2()
         let vc3 = ViewController3()
